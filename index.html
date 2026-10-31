@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMA Plus PGRI Cibinong | PESAT</title>
+
+    <!-- Bootstrap -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+<!-- AOS Animation -->
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+<!-- Animate CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --green: #174d35;
+            --green-light: #24744e;
+            --gold: #f2c66d;
+            --cream: #f7f8f3;
+            --white: #ffffff;
+            --text: #24352b;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* HEADER */
+        header {
+            background: var(--white);
+            padding: 12px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            box-shadow: 0 3px 15px #00000012;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand img {
+            width: 58px;
+            height: 58px;
+            object-fit: contain;
+        }
+
+        .brand-text h2 {
+            color: var(--green);
+            font-size: 16px;
+            line-height: 1.4;
+        }
+
+        .brand-text p {
+            font-size: 11px;
+            color: #68766c;
+            letter-spacing: 1px;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: var(--green);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            padding: 0 7%;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            color: var(--gold);
+            font-size: 21px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 18px 0;
+            color: white;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--gold);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 490px;
+            padding: 75px 7%;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(100deg,
+                rgba(12, 48, 32, 0.93),
+                rgba(23, 77, 53, 0.78)),
+                url("images/background/bgwhite.jpg") center/cover;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 720px;
+        }
+
+        .hero-label {
+            display: inline-block;
+            color: var(--gold);
+            border: 1px solid #f2c66d80;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 55px);
+            line-height: 1.2;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero p {
+            max-width: 600px;
+            color: #e1ebe4;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .button {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--green);
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+        .button-outline {
+            display: inline-block;
+            padding: 11px 23px;
+            border: 1px solid white;
+            color: white;
+            border-radius: 6px;
+            margin-left: 10px;
+            transition: 0.3s;
+        }
+
+        .button-outline:hover {
+            background: white;
+            color: var(--green);
+        }
+
+        /* GENERAL SECTION */
+        section {
+            padding: 75px 7%;
+            scroll-margin-top: 65px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-heading span {
+            color: var(--green-light);
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .section-heading h2 {
+            font-size: 30px;
+            color: var(--green);
+            margin: 8px 0;
+        }
+
+        .section-heading p {
+            max-width: 600px;
+            margin: auto;
+            color: #718076;
+            font-size: 14px;
+        }
+
+        /* FEATURES */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px 24px;
+            border-radius: 12px;
+            border: 1px solid #e5ebe5;
+            box-shadow: 0 8px 25px #173c2810;
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--green-light);
+        }
+
+        .feature-icon {
+            width: 52px;
+            height: 52px;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            background: #e9f2e9;
+            font-size: 25px;
+            margin-bottom: 18px;
+        }
+
+        .feature-card h3 {
+            color: var(--green);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .feature-card p {
+            color: #68766c;
+            font-size: 14px;
+        }
+
+        /* STUDENTDAY */
+        #studentday {
+            background: #edf2eb;
+        }
+
+        .studentday-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .studentday-content h2 {
+            font-size: 32px;
+            color: var(--green);
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .studentday-content p {
+            color: #657267;
+            margin-bottom: 20px;
+        }
+
+        .studentday-list {
+            list-style: none;
+        }
+
+        .studentday-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #d7e1d6;
+        }
+
+        .studentday-list li::before {
+            content: "✓";
+            color: var(--green-light);
+            font-weight: bold;
+            margin-right: 12px;
+        }
+
+        .studentday-box {
+            min-height: 290px;
+            border-radius: 18px;
+            background: linear-gradient(135deg,
+                var(--green), #39815a);
+            color: white;
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 12px 30px #174d3520;
+        }
+
+        .studentday-box .big-icon {
+            font-size: 55px;
+            margin-bottom: 12px;
+        }
+
+        .studentday-box h3 {
+            color: var(--gold);
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .studentday-box p {
+            color: #e2eee5;
+            margin: 0;
+        }
+
+        /* KOPERASI */
+        .koperasi {
+            text-align: center;
+        }
+
+        .koperasi-box {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid #e2e9e1;
+            box-shadow: 0 8px 30px #00000008;
+        }
+
+        .koperasi-box .big-icon {
+            font-size: 48px;
+        }
+
+        .koperasi-box h3 {
+            color: var(--green);
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .koperasi-box p {
+            max-width: 600px;
+            margin: 0 auto 22px;
+            color: #68766c;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #103b29;
+            color: white;
+            padding: 45px 7% 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 35px;
+            margin-bottom: 35px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+            background: white;
+            border-radius: 50%;
+            padding: 4px;
+        }
+
+        footer h3,
+        footer h4 {
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        footer p,
+        footer li,
+        footer a {
+            font-size: 13px;
+            color: #d6e2d9;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 8px;
+        }
+
+        footer a:hover {
+            color: var(--gold);
+        }
+
+        .copyright {
+            border-top: 1px solid #ffffff25;
+            text-align: center;
+            padding-top: 18px;
+            font-size: 12px;
+            color: #c2d4c8;
+        }
+
+        /* RESPONSIVE HP */
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 5%;
+            }
+
+            .brand img {
+                width: 48px;
+                height: 48px;
+            }
+
+            .brand-text h2 {
+                font-size: 13px;
+            }
+
+            .brand-text p {
+                font-size: 9px;
+            }
+
+            .nav-container {
+                padding: 0 5%;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                padding: 10px 5% 20px;
+                background: var(--green);
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 12px 0;
+                border-bottom: 1px solid #ffffff20;
+            }
+
+            .hero {
+                min-height: 430px;
+                padding: 65px 6%;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .button,
+            .button-outline {
+                font-size: 13px;
+                padding: 11px 16px;
+            }
+
+            section {
+                padding: 55px 6%;
+            }
+
+            .section-heading h2 {
+                font-size: 25px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .studentday-content {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .studentday-content h2 {
+                font-size: 27px;
+            }
+
+            .studentday-box {
+                min-height: 230px;
+            }
+
+            .koperasi-box {
+                padding: 28px 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+        }
+
+        /* ANIMASI KARTU */
+.feature-card {
+    transition: all 0.4s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(23, 77, 53, 0.15);
+}
+
+/* ANIMASI TOMBOL */
+.button {
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    transform: translateY(-4px) scale(1.03);
+}
+
+/* ANIMASI NAVBAR */
+.nav-links a {
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    transform: translateY(-2px);
+}
+
+ .feature-card {
+    transition: all 0.4s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(23, 77, 53, 0.15);
+}
+
+.button {
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    transform: translateY(-4px) scale(1.05);
+}
+
+.nav-links a {
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+    transform: translateY(-3px);
+}
+
+    </style>
+</head>
+
+<body class="animate__animated animate__fadeIn">
+
+    <!-- HEADER SEKOLAH -->
+    <header id="home" class="animate__animated animate__fadeInDown">
+        <a href="#home" class="brand">
+            <img src="logo/pesat.png"
+                 alt="Logo SMA Plus PGRI Cibinong">
+            <div class="brand-text">
+                <h2>SMA PLUS PGRI CIBINONG</h2>
+                <p>BERKARAKTER • BERPRESTASI</p>
+            </div>
+        </a>
+    </header>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">PESAT.</a>
+
+            <button class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Buka menu"
+                    aria-expanded="false">
+                ☰
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#studentday">Studentday</a></li>
+                <li><a href="#koperasi">Koperasi IT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO / HALAMAN UTAMA -->
+    <main>
+        <section class="hero">
+            <div class="hero-content" data-aos="fade-up">
+                <span class="hero-label">WELCOME TO PESAT</span>
+
+                <h1 class="animate__animated animate__fadeInDown">
+                    Membangun Generasi <span>Unggul</span>
+                    dan Berkarakter
+                </h1>
+
+                <p>
+                    Selamat datang di SMA Plus PGRI Cibinong.
+                    Tempat untuk belajar, mengembangkan potensi,
+                    membangun karakter, dan meraih masa depan
+                    yang lebih baik.
+                </p>
+
+                <a href="#tentang" class="button">
+                    Kenali Sekolah Kami →
+                </a>
+
+                <a href="#studentday" class="button-outline">
+                    Jelajahi
+                </a>
+            </div>
+        </section>
+
+        <!-- TENTANG SEKOLAH -->
+        <section id="tentang">
+            <div class="section-heading">
+                <span>Tentang Kami</span>
+                <h2>Kenali PESAT Lebih Dekat</h2>
+                <p>
+                    Lingkungan belajar untuk mendukung perkembangan
+                    ilmu pengetahuan, kreativitas, dan karakter siswa.
+                </p>
+            </div>
+
+            <div class="features">
+
+    <!-- KARTU 1 -->
+    <article class="feature-card"
+             data-aos="fade-up"
+             data-aos-delay="100">
+
+        <div class="feature-icon">📚</div>
+        <h3>Pembelajaran</h3>
+        <p>
+            Mengembangkan pengetahuan dan kemampuan
+            siswa melalui proses belajar yang bermakna.
+        </p>
+
+    </article>
+
+    <!-- KARTU 2 -->
+    <article class="feature-card"
+             data-aos="fade-up"
+             data-aos-delay="200">
+
+        <div class="feature-icon">🌟</div>
+        <h3>Pengembangan Diri</h3>
+        <p>
+            Mendorong siswa untuk mengenali potensi,
+            melatih keterampilan, dan mengembangkan bakat.
+        </p>
+
+    </article>
+
+    <!-- KARTU 3 -->
+    <article class="feature-card"
+             data-aos="fade-up"
+             data-aos-delay="300">
+
+        <div class="feature-icon">💛</div>
+        <h3>Karakter Positif</h3>
+        <p>
+            Menumbuhkan sikap disiplin, tanggung jawab,
+            kerja sama, dan saling menghargai.
+        </p>
+
+    </article>
+
+</div>
+
+        <!-- STUDENTDAY -->
+        <section id="studentday"
+                data-aos="zoom-in">
+            <div class="studentday-content">
+                <div>
+                    <span class="hero-label"
+                          style="background:#174d35;color:#f2c66d">
+                        KEGIATAN SISWA
+                    </span>
+
+                    <h2>
+                        Temukan Minat dan Bakatmu melalui Studentday
+                    </h2>
+
+                    <p>
+                        Kegiatan pengembangan diri menjadi salah satu
+                        cara untuk mengeksplorasi minat, melatih
+                        kreativitas, dan membangun pengalaman baru.
+                    </p>
+
+                    <ul class="studentday-list">
+                        <li>Mengembangkan keterampilan</li>
+                        <li>Melatih kerja sama dan komunikasi</li>
+                        <li>Membangun rasa percaya diri</li>
+                        <li>Mengeksplorasi minat dan bakat</li>
+                    </ul>
+                </div>
+
+                <div class="studentday-box">
+                    <div class="big-icon">🎓</div>
+                    <h3>Grow, Learn, Achieve</h3>
+                    <p>
+                        Terus belajar, berani mencoba hal baru,
+                        dan jadilah versi terbaik dari dirimu.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- KOPERASI IT -->
+        <section id="koperasi" class="koperasi">
+            <div class="section-heading">
+                <span>Teknologi dan Kreativitas</span>
+                <h2>Koperasi IT</h2>
+                <p>
+                    Mengenal pemanfaatan teknologi informasi
+                    dalam mendukung kegiatan dan kreativitas siswa.
+                </p>
+            </div>
+
+            <div class="koperasi-box"
+             data-aos="fade-up">
+                <div class="big-icon">💻</div>
+                <h3>Explore Digital Creativity</h3>
+                <p>
+                    Teknologi informasi membuka peluang untuk
+                    belajar, berkolaborasi, dan menciptakan karya
+                    digital yang bermanfaat.
+                </p>
+                <a href="#home" class="button">
+                    Kembali ke Atas ↑
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <div class="footer-brand">
+                    <img src="logo/pesat.png"
+                         alt="Logo PESAT">
+                    <h3>SMA Plus PGRI Cibinong</h3>
+                </div>
+                <p>
+                    Membangun generasi yang berkarakter,
+                    kreatif, dan siap menghadapi masa depan.
+                </p>
+            </div>
+
+            <div>
+                <h4>Navigasi</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#tentang">Tentang</a></li>
+                    <li><a href="#studentday">Studentday</a></li>
+                    <li><a href="#koperasi">Koperasi IT</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>Informasi</h4>
+                <ul>
+                    <li>
+                        <a href="https://www.google.com/search?q=SMA+Plus+PGRI+Cibinong"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Cari Informasi Sekolah
+                        </a>
+                    </li>
+                    <li><a href="#tentang">Profil Sekolah</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright">
+            &copy; 2026 SMA Plus PGRI Cibinong.
+            Website pembelajaran.
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT MENU HP -->
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+        const links = navLinks.querySelectorAll("a");
+
+        menuToggle.addEventListener("click", function () {
+            const isOpen = navLinks.classList.toggle("show");
+
+            menuToggle.textContent = isOpen ? "✕" : "☰";
+            menuToggle.setAttribute("aria-expanded", isOpen);
+        });
+
+        links.forEach(function (link) {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("show");
+                menuToggle.textContent = "☰";
+                menuToggle.setAttribute("aria-expanded", "false");
+            });
+        });
+    </script>
+
+    <!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- AOS Animation -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+    AOS.init({
+        duration: 1000,
+        once: false,
+        offset: 100
+    });
+</script>
+
+</body>
+</html>
